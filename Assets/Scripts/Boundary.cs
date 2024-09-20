@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(EdgeCollider2D))]
 public class Boundary : MonoBehaviour
 {

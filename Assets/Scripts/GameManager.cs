@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,8 +14,14 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            //ball.transform.position = startPos;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ball.transform.position = startPos;
+            var ballRb = ball.GetComponent<Rigidbody2D>();
+            ballRb.velocity = Vector2.zero;
+            ballRb.angularVelocity = 0f;
+
+            var trail = ball.GetComponent<TrailRenderer>();
+            trail.Clear();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
