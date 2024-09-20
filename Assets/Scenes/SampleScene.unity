@@ -738,6 +738,10 @@ PrefabInstance:
       propertyPath: m_AngleLimits.m_UpperAngle
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 7459699686012371491, guid: c5b6c056ad63cd7438e8b33e2d5ff96b, type: 3}
+      propertyPath: drag
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8520941090862665236, guid: c5b6c056ad63cd7438e8b33e2d5ff96b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
       value: -0.24657965
@@ -1139,6 +1143,10 @@ PrefabInstance:
     - target: {fileID: 4384666121280400320, guid: c5b6c056ad63cd7438e8b33e2d5ff96b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459699686012371491, guid: c5b6c056ad63cd7438e8b33e2d5ff96b, type: 3}
+      propertyPath: drag
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5457599174853537428}
   - component: {fileID: 6331645127140869285}
   - component: {fileID: 8520941090862665236}
+  - component: {fileID: 7459699686012371491}
   m_Layer: 0
   m_Name: Temporary_Flipper_left
   m_TagString: Untagged
@@ -193,3 +194,17 @@ PolygonCollider2D:
       - {x: 0.24188352, y: -0.027595505}
       - {x: -0.093949676, y: 0.19927081}
   m_UseDelaunayMesh: 0
+--- !u!114 &7459699686012371491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3418586575256324410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8121e493589ee4a94df3ed37b8daf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowFactor: 0.5
+  minVelocity: 2

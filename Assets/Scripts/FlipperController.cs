@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Flippers : MonoBehaviour
+public class FlipperController : MonoBehaviour
 {
     [SerializeField] private HingeJoint2D leftFlipper;
     [SerializeField] private HingeJoint2D rightFlipper;
