@@ -14,7 +14,9 @@ public class Boundary : MonoBehaviour
     void OnDrawGizmos()
     {
         if (edgeCollider == null || edgeCollider.points.Length < 2)
+        {
             return;
+        }
 
         Gizmos.color = new Color(0, 1, 0, 0.5f);
 

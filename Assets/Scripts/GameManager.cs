@@ -7,15 +7,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ball = GameObject.FindWithTag("Ball");
+        ball = GameObject.FindWithTag(Tags.Ball);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SetBallPos(startPos);
+            //SetBallPos(startPos);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            var balls = GameObject.FindGameObjectsWithTag(Tags.Ball);
+            foreach (var ball in balls)
+            {
+                Destroy(ball);
+            }
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -27,6 +33,12 @@ public class GameManager : MonoBehaviour
 
     private void SetBallPos(Vector3 pos)
     {
+        ball = GameObject.FindWithTag(Tags.Ball);
+        if (ball == null)
+        {
+            return;
+        }
+
         ball.transform.position = new Vector3(pos.x, pos.y, 0f);
         var ballRb = ball.GetComponent<Rigidbody2D>();
         ballRb.velocity = Vector2.zero;
@@ -35,4 +47,9 @@ public class GameManager : MonoBehaviour
         var trail = ball.GetComponent<TrailRenderer>();
         trail.Clear();
     }
+}
+
+public static class Tags
+{
+    public static readonly string Ball = "Ball";
 }
