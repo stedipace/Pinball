@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Kicker : BounceBehaviour
+public class Kicker : BounceBehaviourBase
 {
     [SerializeField] private Color hitColor = Color.red;
     [SerializeField] private SpriteRenderer kickerEdgeSprite;

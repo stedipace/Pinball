@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BounceBehaviour : MonoBehaviour
+public abstract class BounceBehaviourBase : MonoBehaviour
 {
     [SerializeField] protected float force = 10f;
 

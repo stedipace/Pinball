@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftFlipper: {fileID: 6116816056047626507}
   rightFlipper: {fileID: 2911677880558188202}
-  speed: 1000
-  returnSpeed: 500
+  speed: 2000
+  returnSpeed: 1000
 --- !u!1001 &233569775418043822
 PrefabInstance:
   m_ObjectHideFlags: 0

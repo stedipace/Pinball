@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bumper : BounceBehaviour
+public class Bumper : BounceBehaviourBase
 {
     [SerializeField] private float vibrationDuration = 0.2f;
     [SerializeField] private float vibrationAmount = 0.1f;
@@ -9,7 +9,7 @@ public class Bumper : BounceBehaviour
 
     private Vector3 startPos;
 
-    private void Start()
+    protected virtual void Start()
     {
         startPos = transform.localPosition;
     }

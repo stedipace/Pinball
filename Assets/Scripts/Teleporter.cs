@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
     [SerializeField] private Transform destination;
+    [SerializeField] private float waitTime = 0.5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,10 +14,32 @@ public class Teleporter : MonoBehaviour
         }
 
         var transform = collision.transform;
-        transform.position = destination.position;
+        var ballRb = transform.GetComponent<Rigidbody2D>();
 
-        if (transform.TryGetComponent<Rigidbody2D>(out var ballRb))
+        transform.position = this.transform.position;
+
+        if (ballRb != null)
         {
+            ballRb.velocity = Vector2.zero;
+            ballRb.angularVelocity = 0f;
+            ballRb.isKinematic = true;
+
+            var trail = ballRb.GetComponent<TrailRenderer>();
+            trail.Clear();
+        }
+
+        StartCoroutine(TeleportAfterDelay(transform));
+    }
+
+    private IEnumerator TeleportAfterDelay(Transform ballTransform)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        ballTransform.position = destination.position;
+
+        if (ballTransform.TryGetComponent<Rigidbody2D>(out var ballRb))
+        {
+            ballRb.isKinematic = false;
             ballRb.velocity = Vector2.zero;
             ballRb.angularVelocity = 0f;
         }
