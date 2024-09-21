@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class Kicker : MonoBehaviour
+public class Kicker : BounceBehaviour
 {
-    [SerializeField] private float force = 10f;
     [SerializeField] private Color hitColor = Color.red;
     [SerializeField] private SpriteRenderer kickerEdgeSprite;
     [SerializeField] private float colorFlashDuration = 0.2f;
@@ -18,36 +17,13 @@ public class Kicker : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollision(Collider2D collider)
     {
-        if (!collision.gameObject.CompareTag(Tags.Ball))
-        {
-            return;
-        }
-
-        if (collision.gameObject.TryGetComponent<Rigidbody2D>(out var ballRb))
-        {
-            var direction = (collision.transform.position - transform.position).normalized;
-            ballRb.AddForce(direction * force, ForceMode2D.Impulse);
-        }
-
         if (kickerEdgeSprite != null)
         {
             StartCoroutine(FlashColor());
         }
-
-        //ContactPoint2D contact = collision.GetContact(0);
-        //if (IsCollisionOnKickerEdge(contact.point))
-        //{
-
-        //}
     }
-
-    //private bool IsCollisionOnKickerEdge(Vector2 collisionPoint)
-    //{
-    //    var edgePosition = kickerEdgeSprite.transform.position;
-    //    return collisionPoint.x > edgePosition.x;
-    //}
 
     private IEnumerator FlashColor()
     {

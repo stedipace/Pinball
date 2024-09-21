@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bumper : MonoBehaviour
+public class Bumper : BounceBehaviour
 {
-    [SerializeField] private float force = 10f;
     [SerializeField] private float vibrationDuration = 0.2f;
     [SerializeField] private float vibrationAmount = 0.1f;
     [SerializeField] private float vibrationSpeed = 40f;
@@ -15,20 +14,9 @@ public class Bumper : MonoBehaviour
         startPos = transform.localPosition;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollision(Collider2D collider)
     {
-        if (!collision.gameObject.CompareTag(Tags.Ball))
-        {
-            return;
-        }
-
-        if (collision.gameObject.TryGetComponent<Rigidbody2D>(out var ballRb))
-        {
-            var direction = (collision.transform.position - transform.position).normalized;
-            ballRb.AddForce(direction * force, ForceMode2D.Impulse);
-
-            StartCoroutine(Vibrate());
-        }
+        StartCoroutine(Vibrate());
     }
 
     private IEnumerator Vibrate()

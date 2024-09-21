@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Flipper : MonoBehaviour
 {
-    [SerializeField] private float slowFactor = 0.5f;
-    [SerializeField] private float minVelocity = 2f;
+    //[SerializeField] private float slowFactor = 0.5f;
+    //[SerializeField] private float minVelocity = 2f;
     [SerializeField] private float drag = 1f;
 
     private void OnCollisionStay2D(Collision2D collision)
