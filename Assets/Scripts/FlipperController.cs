@@ -10,8 +10,8 @@ public class FlipperController : MonoBehaviour
 
     private void Update()
     {
-        var leftInput = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S);
-        var rightInput = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S);
+        var leftInput = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+        var rightInput = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 
         UpdateFlipper(leftFlipper, leftInput, -speed, returnSpeed);
         UpdateFlipper(rightFlipper, rightInput, speed, -returnSpeed);
