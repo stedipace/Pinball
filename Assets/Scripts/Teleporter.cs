@@ -33,6 +33,14 @@ public class Teleporter : MonoBehaviour
 
     private IEnumerator TeleportAfterDelay(Transform ballTransform)
     {
+        var animator = ballTransform.GetComponentInChildren<Animator>(true);
+        animator.gameObject.SetActive(true);
+        animator.Play("Teleport");
+
+        //while (animator.GetCurrentAnimatorStateInfo(0).IsName("Teleport"))
+        //{
+        //    yield return null;
+        //}
         yield return new WaitForSeconds(waitTime);
 
         ballTransform.position = destination.position;
@@ -43,5 +51,6 @@ public class Teleporter : MonoBehaviour
             ballRb.velocity = Vector2.zero;
             ballRb.angularVelocity = 0f;
         }
+        animator.gameObject.SetActive(false);
     }
 }
