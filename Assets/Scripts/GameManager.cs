@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Vector3 startPos = new(10.5f, 6.5f, 0f);
+    [SerializeField] private GameObject ballPrefab;
     private GameObject ball;
 
     private void Start()
@@ -27,13 +28,24 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            ball = GameObject.FindWithTag(Tags.Ball);
+
+            if (ball == null)
+            {
+                Instantiate(ballPrefab, mousePos, Quaternion.identity);
+            }
+
             SetBallPos(mousePos);
         }
     }
 
     private void SetBallPos(Vector3 pos)
     {
-        ball = GameObject.FindWithTag(Tags.Ball);
+        if (ball == null)
+        {
+            ball = GameObject.FindWithTag(Tags.Ball);
+        }
+
         if (ball == null)
         {
             return;
