@@ -4,7 +4,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Vector3 startPos = new(10.5f, 6.5f, 0f);
     [SerializeField] private GameObject ballPrefab;
+
     private GameObject ball;
+    private bool showControls = true;
 
     private void Start()
     {
@@ -37,6 +39,11 @@ public class GameManager : MonoBehaviour
 
             SetBallPos(mousePos);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            showControls = !showControls;
+        }
     }
 
     private void SetBallPos(Vector3 pos)
@@ -60,34 +67,39 @@ public class GameManager : MonoBehaviour
         trail.Clear();
     }
 
-    //    private void OnGUI()
-    //    {
-    //        var controlRect = new Rect(10, 10, 220, 110);
+    private void OnGUI()
+    {
+        if (!showControls)
+        {
+            return;
+        }
 
-    //        var boxStyle = new GUIStyle(GUI.skin.box);
-    //        boxStyle.normal.background = MakeTex(2, 2, new Color(0f, 0f, 0f, 0.5f));
+        var controlRect = new Rect(10, 10, 220, 140);
+        var boxStyle = new GUIStyle(GUI.skin.box);
+        boxStyle.normal.background = MakeTex(2, 2, new Color(0f, 0f, 0f, 0.5f));
 
-    //        GUI.Box(controlRect, GUIContent.none, boxStyle);
+        GUI.Box(controlRect, GUIContent.none, boxStyle);
 
-    //        GUI.Label(new Rect(20, 20, 200, 20), "A/D: Left/Right Flipper");
-    //        GUI.Label(new Rect(20, 40, 200, 20), "S: Both flippers");
-    //        GUI.Label(new Rect(20, 60, 200, 20), "Space: Plunger");
-    //        GUI.Label(new Rect(20, 80, 200, 20), "R: Reset balls");
-    //        GUI.Label(new Rect(20, 100, 300, 20), "Click: Spawn ball at mouse position");
-    //    }
+        GUI.Label(new Rect(20, 20, 200, 20), "A/D: Left/Right flipper");
+        GUI.Label(new Rect(20, 40, 200, 20), "S: Both flippers");
+        GUI.Label(new Rect(20, 60, 200, 20), "Space: Plunger");
+        GUI.Label(new Rect(20, 80, 200, 20), "R: Reset balls");
+        GUI.Label(new Rect(20, 100, 300, 20), "Left click: Spawn ball at mouse");
+        GUI.Label(new Rect(20, 120, 300, 20), "ESC: Toggle controls");
+    }
 
-    //    private Texture2D MakeTex(int width, int height, Color col)
-    //    {
-    //        var pix = new Color[width * height];
-    //        for (var i = 0; i < pix.Length; i++)
-    //        {
-    //            pix[i] = col;
-    //        }
-    //        var result = new Texture2D(width, height);
-    //        result.SetPixels(pix);
-    //        result.Apply();
-    //        return result;
-    //    }
+    private Texture2D MakeTex(int width, int height, Color col)
+    {
+        var pix = new Color[width * height];
+        for (var i = 0; i < pix.Length; i++)
+        {
+            pix[i] = col;
+        }
+        var result = new Texture2D(width, height);
+        result.SetPixels(pix);
+        result.Apply();
+        return result;
+    }
 }
 
 public static class Tags
