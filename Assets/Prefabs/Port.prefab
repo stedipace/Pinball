@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350deca91afd6c245ae281e4a263f588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
   waitTime: 0.5
+  animationName: Teleport
+  destination: {fileID: 0}
 --- !u!58 &8783173653531418778
 CircleCollider2D:
   m_ObjectHideFlags: 0

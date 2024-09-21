@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 0.5
+  animationName: Charge
   onCharged:
     m_PersistentCalls:
       m_Calls:

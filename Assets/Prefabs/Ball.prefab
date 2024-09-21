@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5550391406473529899}
   - component: {fileID: 558063938672317093}
   m_Layer: 0
-  m_Name: Teleport_0
+  m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
