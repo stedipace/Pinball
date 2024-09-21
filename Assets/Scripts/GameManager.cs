@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
         GUI.Label(new Rect(20, 20, 200, 20), "A/D: Left/Right flipper");
         GUI.Label(new Rect(20, 40, 200, 20), "S: Both flippers");
-        GUI.Label(new Rect(20, 60, 200, 20), "Space: Plunger");
+        GUI.Label(new Rect(20, 60, 200, 20), "Space (hold): Plunger");
         GUI.Label(new Rect(20, 80, 200, 20), "R: Reset balls");
         GUI.Label(new Rect(20, 100, 300, 20), "Left click: Spawn ball at mouse");
         GUI.Label(new Rect(20, 120, 300, 20), "ESC: Toggle controls");
