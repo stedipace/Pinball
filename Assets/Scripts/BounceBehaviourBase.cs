@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BounceBehaviourBase : MonoBehaviour
+public abstract class BounceBehaviourBase : CollisionBehaviourBase
 {
     [SerializeField] protected float force = 10f;
 
@@ -13,9 +13,7 @@ public abstract class BounceBehaviourBase : MonoBehaviour
         }
     }
 
-    protected abstract void OnCollision(Collider2D collider);
-
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag(Tags.Ball))
         {
